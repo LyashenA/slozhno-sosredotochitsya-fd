@@ -3,15 +3,24 @@
   и их переопределение под различные устройства
 */
 :root {
+  /*Цвета*/
   --accent-color: #ff0070;
   --titul-color: #db00ff;
   --header-color: #ff0070;
   --mark-text-color: #000028;
   --text-color: #f1b2ce;
   --body-bg-color: #000028;
+  --button-hover-color: rgba(255, 0, 112, 0.4);
 
+  /*Фон*/
   --bg-image: url('../images/cover-image-dark.png');
-  
+
+  /*Шрифт титульного заголовка*/
+  --title-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+
+  /*Отступы*/
+  --content-margin-block: 40px;
+  --content-gap: 50px;
   --main-gap: 10px;
   --rec-position-right: 38px;
 }
@@ -19,5 +28,8 @@
 @media (width >= 768px) {
   :root {
     --main-gap: 20px;
-  } /*Эта переменная не работает! Почему?*/
+    --title-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);;
+    --content-margin-block: 60px;
+    --content-gap: 80px;
+  }
 }
