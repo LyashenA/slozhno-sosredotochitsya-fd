@@ -25,8 +25,8 @@
 .decorated-zone::after {
   content: '';
   position: absolute;
-  inset-inline-start: 10px;
-  inset-block-end: 80px;
+  inset-inline-start: var(--main-gap);
+  inset-block-end: var(--main-gap); /*Хз возможно неправильно*/
   inline-size: 25px;
   block-size: 25px;
   border-inline-start: 1px solid var(--header-color);
@@ -35,7 +35,8 @@
 
 .header__rec {
   position: absolute;
-  inset-inline-end: 38px;
+  display: block;
+  inset-inline-end: var(--main-gap);
   inset-block-start: var(--main-gap);
 }
 
@@ -49,10 +50,9 @@
 
 .header__rec::after {
   content: '';
-  display: block;
-  position: absolute;
-  inset-inline-start: 43px;
-  inset-block-start: 10px;
+  display: inline-block;
+  margin-inline-start: 10px;
+  margin-inline-end: 9px;
   inline-size: 9px;
   block-size: 9px;
   background-color: var(--header-color);
@@ -60,23 +60,31 @@
   box-shadow: 0 0 4px 2px var(--header-color);
 }
 
-.wrapper {
-  padding: clamp(10px, 2.6%, 20px); /*Здесь должен быть calc */
-}
-
 .header {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr min-content 1fr;
   align-items: center;
   color: var(--header-color);
+  block-size: 100vh;
+
+  @media (width >= 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   /*Это для обозначения границы блока*/
   /*border: 1px solid var(--accent-color);*/
 }
 
 .header__theme-menu {
   justify-self: end;
-  margin-block-start: 20%;
+  margin-block-start: 5px; /*Ну вообще хз. Еще подумай*/
+  margin-inline-end: var(--main-gap);
+
+  @media (width >= 768px) {
+    grid-column: 2;
+  }
 }
 
 .header__theme-menu-list {
@@ -86,6 +94,8 @@
 }
 
 .header__theme-menu-button {
+  inline-size: 70px;
+  block-size: 26px;
   background-color: transparent;
   border: none;
   font-size: 18px;
@@ -98,18 +108,33 @@
   border: 1px solid var(--accent-color);
 }
 
-.header__title {
+.logo {
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 83%;
   color: var(--titul-color);
+}
+
+.header__title {
+  margin-inline-start: var(--main-gap);
   text-shadow: 4px 4px 0 var(--accent-color);
+
+  @media (width >= 768px) {
+    margin-inline-start: 0px;
+    grid-column: 1 / -1;
+  }
 }
 
 .header__subtitle {
+  margin-inline: var(--main-gap);
   font-size: 18px;
   font-weight: 700;
   line-height: 23.4px;
+  margin-block-end: 10px; /*Ну вообще хз. Еще подумай*/
+
+  @media (width >= 768px) {
+    grid-column: 2;
+  }
 }
 
 .title-decor {
@@ -118,6 +143,8 @@
 }
 
 .content {
+  margin-block: 40px;
+  padding-inline: clamp(var(--main-gap), 2.6%, 20px);
   display: grid;
   gap: 50px;
   font-size: 18px;
@@ -146,7 +173,7 @@
   font-size: inherit;
 }
 
-.text-blocks {
+.content-blocks {
   display: grid;
   gap: 20px;
 
@@ -161,7 +188,7 @@
   }
 }
 
-.causes .text-blocks {
+.causes .content-blocks {
   @media (width >= 768px) {
     grid-column: 1 / -1;
   }
@@ -173,10 +200,14 @@
   }
 }
 
+.text-block {
+  display: grid;
+  gap: 10px;
+}
+
 .text-block__title {
   color: var(--mark-text-color);
   background-color: var(--accent-color);
-  margin-bottom: 10px;
   font-weight: 700;
   font-size: inherit;
 }
@@ -192,4 +223,66 @@
 
 .subtitle {
   font-weight: inherit;
+}
+
+.gallery {
+  display: grid;
+  gap: var(--main-gap);
+
+  @media (width >= 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, min-content);
+  }
+}
+
+.image-block__title {
+  color: var(--mark-text-color);
+  background-color: var(--accent-color);
+  font-weight: 700;
+  font-size: inherit;
+
+  @media (width >= 768px) {
+    grid-column: 1/-1;
+  }
+}
+
+.image {
+  display: block;
+  inline-size: 100%;
+
+  @media (width >= 768px) {
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (width >= 768px) {
+  .image:first-of-type {
+    grid-column: span 2;
+  }
+
+  .image:nth-of-type(2) {
+    grid-row: span 2;
+  }
+
+  .image:nth-of-type(3) {
+    grid-row: span 2;
+  }
+
+  .image:nth-of-type(5) {
+    grid-column: span 2;
+  }
+}
+
+.footer {
+  position: relative;
+  block-size: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
 }

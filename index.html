@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="./styles/dark.css" />
     <link rel="stylesheet" href="./styles/light.css" />
   </head>
-  <body class="page wrapper">
-    <header class="header decorated-zone wrapper">
+  <body class="page">
+    <header class="header decorated-zone">
       <span class="header__rec" aria-hidden="true"></span>
       <nav class="header__theme-menu">
         <ul class="header__theme-menu-list">
@@ -45,7 +45,7 @@
           </li>
         </ul>
       </nav>
-      <h1 class="header__title">no focus</h1>
+      <h1 class="logo header__title">no focus</h1>
       <div class="header__subtitle title-decor">
         <p>
           Что делать, когда не можешь делать ничего
@@ -59,7 +59,7 @@
     <main class="content">
       <section class="content-section why">
         <h2 class="content-section__title">Почему сосредоточиться так сложно</h2>
-        <div class="text-blocks">
+        <div class="content-blocks">
           <article class="text-block">
             <h3 class="text-block__title">Многозадачность</h3>
             <p class="text-block__text">
@@ -84,7 +84,7 @@
       </section>
       <section class="content-section causes">
         <h2 class="content-section__title">Что снижает концентрацию внимания?</h2>
-        <div class="text-blocks">
+        <div class="content-blocks">
           <article class="text-block">
             <h3 class="text-block__title">Многозадачность</h3>
             <p class="text-block__text">
@@ -117,7 +117,7 @@
       </section>
       <section class="content-section advices">
         <h2 class="content-section__title">Как концентрироваться лучше, чем золотая рыбка (то есть дольше трёх секунд)</h2>
-        <div class="text-blocks">
+        <div class="content-blocks">
           <h3 class="text-block__title">5 простых (на самом деле не очень) советов</h3>
           <article class="text-block">
             <h4 class="text-block__title subtitle">Представьте небо и облака</h4>
@@ -164,9 +164,43 @@
             </p>
           </article>
         </div>
-        <div class="images"></div>
+      </section>
+      <section class="gallery">
+        <h3 class="image-block__title">А можно в картинках?</h3>
+        <img
+            class="image sunset"
+            src="./images/sunset.png"
+            alt=""
+            loading="lazy"
+          >
+          <img
+            class="image ice-cream"
+            src="./images/ice-cream.png"
+            alt=""
+            loading="lazy"
+          >
+          <img
+            class="image tape"
+            src="./images/tape.png"
+            alt=""
+            loading="lazy"
+          >
+          <img 
+            class="image books"
+            src="./images/books.png"
+            alt=""
+            loading="lazy"
+          >
+          <img 
+            class="image street"
+            src="./images/street.png"
+            alt=""
+            loading="lazy"
+          >
       </section>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer decorated-zone">
+      <h2 class="logo footer__title">focus</h2>
+    </footer>
   </body>
 </html>

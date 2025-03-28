@@ -9,7 +9,15 @@
   --mark-text-color: #000028;
   --text-color: #f1b2ce;
   --body-bg-color: #000028;
+
+  --bg-image: url('../images/cover-image-dark.png');
   
   --main-gap: 10px;
   --rec-position-right: 38px;
+}
+
+@media (width >= 768px) {
+  :root {
+    --main-gap: 20px;
+  } /*Эта переменная не работает! Почему?*/
 }
